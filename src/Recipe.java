@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class Recipe {
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
+    private ArrayList<Double> portions = new ArrayList<>();
     private double[] nutrients = new double[12];
     private String name;
     private String description;
@@ -11,7 +12,10 @@ public class Recipe {
     public Recipe(String name){
         this.name = name;
     }
-    public void addIngredient(Ingredient ingredient){ ingredients.add(ingredient); }
+    public void addIngredient(Ingredient ingredient, double portion){
+        ingredients.add(ingredient);
+        portions.add(portion);
+    }
     public String getName() {
         return name;
     }
