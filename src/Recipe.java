@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class Recipe {
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private ArrayList<Double> portions = new ArrayList<>();
-    private double[] nutrients = new double[12];
+    private double[] nutrients = new double[13];
     private String name;
     private String description;
     private MealType mealType;
@@ -15,6 +15,15 @@ public class Recipe {
     public void addIngredient(Ingredient ingredient, double portion){
         ingredients.add(ingredient);
         portions.add(portion);
+    }
+
+    public void calculationVitamin(Ingredient ingredient, double portion){
+        int iter = 0;
+        for(Vitamins vitamin: Vitamins.values()){
+            nutrients[iter] = (ingredient.getNutrientAmount(vitamin)/100) * portion;
+            System.out.println(nutrients[iter]);
+            iter++;
+        }
     }
     public String getName() {
         return name;

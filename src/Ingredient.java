@@ -6,7 +6,7 @@ public class Ingredient {
     private String name;
     private String description;
     private FoodType foodType;
-    private HashMap<String, Double> nutrients = new HashMap<>();
+    private HashMap<Vitamins, Double> nutrients = new HashMap<>();
     private double caloriesPer100;
     private double proteinPer100;
 
@@ -26,8 +26,17 @@ public class Ingredient {
         this.name = name;
     }
 
-    public void addNutrient(String nutrient, double amount) {
+    public void addNutrient(Vitamins nutrient, double amount) {
         nutrients.put(nutrient, amount);
+    }
+
+    public double getNutrientAmount(Vitamins nutrient){
+        if(nutrients.get(nutrient) == null) {
+            nutrients.put(nutrient, 0.0);
+            return 0.0;
+        }else {
+            return nutrients.get(nutrient);
+        }
     }
 
     public void removeNutrient(String nutrient) {
