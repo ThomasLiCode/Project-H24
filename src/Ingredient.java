@@ -9,15 +9,13 @@ public class Ingredient {
     private HashMap<String, Double> nutrients = new HashMap<>();
     private double caloriesPer100;
     private double proteinPer100;
-    private double portion;
 
-    public Ingredient(String name, String description, FoodType foodType, double caloriesPer100, double proteinPer100, double portion) {
+    public Ingredient(String name, String description, FoodType foodType, double caloriesPer100, double proteinPer100) {
         this.name = name;
         this.description = description;
         this.foodType = foodType;
         this.caloriesPer100 = caloriesPer100;
         this.proteinPer100 = proteinPer100;
-        this.portion = portion;
     }
 
     public String getName() {
@@ -68,13 +66,6 @@ public class Ingredient {
         this.proteinPer100 = proteinPer100;
     }
 
-    public double getPortion() {
-        return portion;
-    }
-
-    public void setPortion(double portion) {
-        this.portion= portion;
-    }
     @Override
     public String toString() {
         return "Ingredient{" +
