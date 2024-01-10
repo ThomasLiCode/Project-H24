@@ -28,7 +28,8 @@ public class User {
     }
 
     public void addAllergy(String allergy) {
-        allergies.add(allergy);
+        String polished = allergy.trim().toLowerCase();
+        allergies.add(polished);
     }
 
     public void removeAllergy(String allergy) {
