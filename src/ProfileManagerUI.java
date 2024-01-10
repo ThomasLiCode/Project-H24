@@ -14,7 +14,7 @@ public class ProfileManagerUI extends JFrame {
 
     private void createUI() {
         setTitle("Profile Manager");
-        setSize(400, 200);
+        setSize(1200, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
