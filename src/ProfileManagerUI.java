@@ -37,7 +37,6 @@ public class ProfileManagerUI extends JFrame {
         JButton createAccountButton = new JButton("Create Account");
         add(createAccountButton);
 
-
         selectProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,9 +48,23 @@ public class ProfileManagerUI extends JFrame {
         createAccountButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(profileComboBox.getItemCount()>3) return;
+                if(profileComboBox.getItemCount()>=3){
+                    JOptionPane.showMessageDialog(ProfileManagerUI.this, "Max number of profiles already reached.");
+                    return;
+                }
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
+                if(username.isEmpty()){
+                    JOptionPane.showMessageDialog(ProfileManagerUI.this, "Please enter a username");
+                    return;
+                }
+
+                for(int i = 0; i < profileComboBox.getItemCount(); i++){
+                    if(username.equalsIgnoreCase(profileComboBox.getItemAt(i))){
+                        JOptionPane.showMessageDialog(ProfileManagerUI.this, "Username already in use");
+                        return;
+                    }
+                }
                 User user = new User(username, password);
                 profileComboBox.addItem(username);
                 JOptionPane.showMessageDialog(ProfileManagerUI.this, "Account Created for: " + username);
