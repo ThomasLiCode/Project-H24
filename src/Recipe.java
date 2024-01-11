@@ -81,9 +81,9 @@ public class Recipe {
     public void add(Ingredient ingredient, double portion)
     {
         this.ingredients.add(ingredient);
-        this.portion.add(portion);
-        calculateProtein();
-        calculateCalories();
+        this.portions.add(portion);
+        calculationProtein();
+        calculationCalories();
     }
 
     // public void saveRecipe(){  } need to create a file in order to save
