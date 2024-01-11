@@ -3,7 +3,6 @@ public class Recipe {
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private ArrayList<Double> portions = new ArrayList<>();
     private double[] nutrients = new double[13];
-    private final Vitamins[] nutrientBase = {A, B1, B2, B3, B5, B6, B7, B9, B12, C, D, E, K};
     private String name;
     private String description;
     private MealType mealType;
@@ -29,7 +28,7 @@ public class Recipe {
 
     public double calculationProteinHelper(Ingredient ingredient, double portion)
     {
-        int result = (portion / 100) * ingredient.getProteinPer100();
+        double result = (ingredient.getProteinPer100 / 100) * portion;
         return result;
     }
 
@@ -43,7 +42,7 @@ public class Recipe {
 
     public double calculationCaloriesHelper(Ingredient ingredient, double portion)
     {
-        int result = (portion / 100) * ingredient.getCaloriesPer100();
+        double result = (ingredient.getCaloriesPer100 / 100) * portion;
         return result
     }
 
@@ -83,13 +82,10 @@ public class Recipe {
     {
         this.ingredients.add(ingredient);
         this.portion.add(portion);
-        for(int i = 0 ; i < nutrientBase.length ; i++)
-        {
-            nutrients[i] += ingredient.getNutrientAmount(nutrientBase[i]);
-        }
         calculateProtein();
         calculateCalories();
     }
 
+    // public void saveRecipe(){  } need to create a file in order to save
 
 }
