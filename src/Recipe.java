@@ -28,7 +28,7 @@ public class Recipe {
 
     public double calculationProteinHelper(Ingredient ingredient, double portion)
     {
-        double result = (ingredient.getProteinPer100 / 100) * portion;
+        double result = (ingredient.getProteinPer100() / 100) * portion;
         return result;
     }
 
@@ -42,8 +42,8 @@ public class Recipe {
 
     public double calculationCaloriesHelper(Ingredient ingredient, double portion)
     {
-        double result = (ingredient.getCaloriesPer100 / 100) * portion;
-        return result
+        double result = (ingredient.getCaloriesPer100() / 100) * portion;
+        return result;
     }
 
     public void calculationCalories()
@@ -72,7 +72,7 @@ public class Recipe {
 
     public void setMealType(MealType mealType){ this.mealType = mealType; }
 
-    public void getMealType() { return this.mealType; }
+    public MealType getMealType() { return this.mealType; }
 
     public double getProtein() { return this.protein; }
 
