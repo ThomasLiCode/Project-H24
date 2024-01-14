@@ -80,10 +80,43 @@ public class Recipe {
 
     public void add(Ingredient ingredient, double portion)
     {
-        this.ingredients.add(ingredient);
-        this.portions.add(portion);
-        calculationProtein();
-        calculationCalories();
+        switch(mealType)
+        {
+            case Vegan:
+                if(ingredient.getFoodType() == FoodType.Dairy || ingredient.getFoodType() == FoodType.Meat)
+                {
+                    System.out.println("You can't add this");
+                }
+                else
+                {
+                    this.ingredients.add(ingredient);
+                    this.portions.add(portion);
+                    calculationProtein();
+                    calculationCalories();
+                }
+                break;
+
+            case Vegetarian:
+                if(ingredient.getFoodType() == FoodType.Meat)
+                {
+                    System.out.println("You can't add this");
+                }
+                else
+                {
+                    this.ingredients.add(ingredient);
+                    this.portions.add(portion);
+                    calculationProtein();
+                    calculationCalories();
+                }
+                break;
+
+            case Unrestricted:
+                this.ingredients.add(ingredient);
+                this.portions.add(portion);
+                calculationProtein();
+                calculationCalories();
+                break;
+        }
     }
 
     // public void saveRecipe(){  } need to create a file in order to save
