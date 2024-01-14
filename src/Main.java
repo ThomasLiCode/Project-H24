@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
@@ -8,6 +9,8 @@ public class Main {
         ingredient.addNutrient(Vitamins.B2, 30);
         Recipe recipe = new Recipe("Medium Steak");
         recipe.calculationVitamin(ingredient, 300);
+
+        ArrayList<Recipe> meals = new ArrayList<Recipe>();
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
