@@ -5,10 +5,20 @@ public class User {
     private String username;
     private String password;
     private ArrayList<String> allergies = new ArrayList<>();
+    private MealType validMeals;
+
+    public User()
+    {
+        this.username = "";
+        this.password = "";
+        this.validMeals = MealType.Unrestricted;
+
+    }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.validMeals = MealType.Unrestricted;
     }
 
     public String getUsername() {
@@ -30,6 +40,23 @@ public class User {
     public void addAllergy(String allergy) {
         String polished = allergy.trim().toLowerCase();
         allergies.add(polished);
+    }
+
+    public void setValidMeals(String validMeals)
+    {
+        String polish = validMeals.trim().toLowerCase();
+        if(polish.equals("vegan"))
+        {
+            this.validMeals = MealType.Vegan;
+        }
+        else if(polish.equals("vegetarian"))
+        {
+            this.validMeals = MealType.Vegetarian;
+        }
+        else
+        {
+            this.validMeals = MealType.Unrestricted;
+        }
     }
 
     public void removeAllergy(String allergy) {
