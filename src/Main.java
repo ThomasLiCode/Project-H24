@@ -1,12 +1,14 @@
 import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner save = new Scanner(new FileReader(saveFile));
-        User newUser = new User();
+
         try
         {
+            Scanner save = new Scanner(new FileReader("src/saveFile"));
             String firstLine = save.nextLine();
             String[] stats = firstLine.split(" ");
             User newUser = new User(stats[0], stats[1]);
@@ -14,8 +16,12 @@ public class Main {
             {
                 newUser.addAllergy(stats[i]);
             }
+            System.out.println(newUser);
 //            while(save.hasNextLine()) Loops to get all ingredients and recipes
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
+
 
         Ingredient ingredient = new Ingredient("Steak", "Tasty", FoodType.Meat, 100, 10);
         ingredient.addNutrient(Vitamins.A, 10);
