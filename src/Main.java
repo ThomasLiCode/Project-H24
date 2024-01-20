@@ -32,11 +32,11 @@ public class Main {
 
         ArrayList<Recipe> meals = new ArrayList<Recipe>();
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ProfileManagerUI().setVisible(true);
-            }
-        });
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new ProfileManagerUI().setVisible(true);
+//            }
+//        });
     }
 }
