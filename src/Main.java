@@ -17,6 +17,7 @@ public class Main {
                 newUser.addAllergy(stats[i]);
             }
             System.out.println(newUser);
+
 //            while(save.hasNextLine()) Loops to get all ingredients and recipes
         } catch (Exception e) {
             throw new RuntimeException(e);
