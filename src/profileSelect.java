@@ -11,11 +11,6 @@ public class profileSelect extends JPanel {
 
     public profileSelect(MainFrame frame){
         this.frame = frame;
-        ArrayList<String> users = MainFrame.returnUsers();
-        cbProfiles = new JComboBox<>(new DefaultComboBoxModel(users.toArray(new String[0])));
-        cbProfiles.revalidate();
-        cbProfiles.repaint();
-        System.out.println(cbProfiles.getItemAt(0));
 
         btnRegister.addActionListener(new ActionListener() {
             @Override
@@ -32,5 +27,10 @@ public class profileSelect extends JPanel {
 
     public JPanel getPanel() {
         return profileSelect;
+    }
+
+    private void createUIComponents() {
+        ArrayList<String> users = MainFrame.returnUsers();
+        cbProfiles = new JComboBox<>(users.toArray(new String[0]));
     }
 }
