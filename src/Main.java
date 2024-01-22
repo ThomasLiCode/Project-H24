@@ -8,7 +8,7 @@ public class Main {
 
         try
         {
-            Scanner save = new Scanner(new FileReader("src/saveFile"));
+            Scanner save = new Scanner(new FileReader("src/saveFile1"));
             String firstLine = save.nextLine();
             String[] stats = firstLine.split(" ");
             User newUser = new User(stats[0], stats[1]);
