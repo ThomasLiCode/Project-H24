@@ -1,8 +1,8 @@
 public enum FoodType {
-    Carbohydrates,
-    Dairy,
-    Fruit,
-    Meat,
-    Vegetable,
-    Other
+    CARBOHYDRATES,
+    DAIRY,
+    FRUIT,
+    MEAT,
+    VEGETABLE,
+    OTHER
 }

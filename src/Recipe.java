@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Recipe {
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private ArrayList<Double> portions = new ArrayList<>();
-    private double[] nutrients = new double[13];
+    private HashMap<Vitamins, Double> nutrients = new HashMap<>();
     private String name;
     private String description;
     private MealType mealType;
@@ -18,11 +20,8 @@ public class Recipe {
     }
 
     public void calculationVitamin(Ingredient ingredient, double portion){
-        int iter = 0;
         for(Vitamins vitamin: Vitamins.values()){
-            nutrients[iter] = (ingredient.getNutrientAmount(vitamin)/100) * portion;
-            System.out.println(nutrients[iter]);
-            iter++;
+            nutrients.put(vitamin,  (ingredient.getNutrientAmount(vitamin)/100) * portion);
         }
     }
 
@@ -82,8 +81,8 @@ public class Recipe {
     {
         switch(mealType)
         {
-            case Vegan:
-                if(ingredient.getFoodType() == FoodType.Dairy || ingredient.getFoodType() == FoodType.Meat)
+            case VEGAN:
+                if(ingredient.getFoodType() == FoodType.DAIRY || ingredient.getFoodType() == FoodType.MEAT)
                 {
                     System.out.println("You can't add this");
                 }
@@ -96,8 +95,8 @@ public class Recipe {
                 }
                 break;
 
-            case Vegetarian:
-                if(ingredient.getFoodType() == FoodType.Meat)
+            case VEGETARIAN:
+                if(ingredient.getFoodType() == FoodType.MEAT)
                 {
                     System.out.println("You can't add this");
                 }
@@ -110,7 +109,7 @@ public class Recipe {
                 }
                 break;
 
-            case Unrestricted:
+            case UNRESTRICTED:
                 this.ingredients.add(ingredient);
                 this.portions.add(portion);
                 calculationProtein();

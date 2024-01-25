@@ -27,7 +27,10 @@ public class registerForm extends JPanel {
                 }else{
                     int n = 1;
                     while(!checkEmpty("src/saveFile" + n)){
-                        if(n == 3) break;
+                        if(n == 3){
+                            JOptionPane.showMessageDialog(frame, "Cannot register account because profile max of 3 it met", "Max Profiles", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         n++;
                     }
                     User user = new User(tfUsername.getText(), tfPassword.getText());

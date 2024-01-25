@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
@@ -24,7 +23,7 @@ public class Main {
         }
 
 
-        Ingredient ingredient = new Ingredient("Steak", "Tasty", FoodType.Meat, 100, 10);
+        Ingredient ingredient = new Ingredient("Steak", "Tasty", FoodType.MEAT, 100, 10);
         ingredient.addNutrient(Vitamins.A, 10);
         ingredient.addNutrient(Vitamins.B1, 30);
         ingredient.addNutrient(Vitamins.B2, 30);

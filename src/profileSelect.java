@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class profileSelect extends JPanel {
     private JComboBox<String> cbProfiles;
     private JButton btnRegister;
     private JPanel profileSelect;
+    private JButton btnLogin;
+    private String selectProfile;
     private JFrame frame;
 
     public profileSelect(MainFrame frame){
@@ -16,6 +19,12 @@ public class profileSelect extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.showRegistrationPanel();
+            }
+        });
+        btnLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               selectProfile = (String)cbProfiles.getSelectedItem();
             }
         });
     }
@@ -29,8 +38,12 @@ public class profileSelect extends JPanel {
         return profileSelect;
     }
 
+    public String returnProfile(){
+        return selectProfile;
+    }
+
     private void createUIComponents() {
-        ArrayList<String> users = MainFrame.returnUsers();
+        List<String> users = MainFrame.returnUsers();
         cbProfiles = new JComboBox<>(users.toArray(new String[0]));
     }
 }

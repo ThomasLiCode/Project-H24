@@ -1,14 +1,16 @@
 import javax.swing.*;
 import java.io.FileReader;
+import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class MainFrame extends JFrame {
     private JPanel profileSelectionPanel;
     //    private registerForm registrationPanel;
     private JPanel registrationPanel;
 
-    private static ArrayList<String> users = new ArrayList<>();
+    private static ArrayList<User> users = new ArrayList<>();
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,19 +37,17 @@ public class MainFrame extends JFrame {
     public void loadUser(){
         try {
             for (int i = 1; i <= 3; i++) {
-                Scanner save = new Scanner(new FileReader("src/saveFile" + i));
-                if (save.hasNext()) {
-                    String name = save.next();
-                    users.add(name);
-                }
+                User newUser = User.loadFromFile("src/saveFile" + i);
+
+                users.add(newUser);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static ArrayList<String> returnUsers() {
-        return users;
+    public static List<String> returnUsers() {
+        return users.stream().map(User::getUsername).collect(Collectors.toList());
     }
 
     public static void main(String[] args) {

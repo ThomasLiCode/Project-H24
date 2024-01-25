@@ -1,5 +1,5 @@
 public enum MealType {
-    Vegan,
-    Vegetarian,
-    Unrestricted
+    VEGAN,
+    VEGETARIAN,
+    UNRESTRICTED
 }
