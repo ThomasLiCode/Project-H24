@@ -38,7 +38,6 @@ public class MainFrame extends JFrame {
         try {
             for (int i = 1; i <= 3; i++) {
                 User newUser = User.loadFromFile("src/saveFile" + i);
-
                 users.add(newUser);
             }
         } catch (Exception e) {
