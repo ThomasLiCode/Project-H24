@@ -146,12 +146,10 @@ public class User {
 
                         user.addIngredient(ing);
                 }
-
-
             }
-
+            user.sortRecipe();
+            user.sortIngredient();
             return user;
-
         } catch (Exception e) {
             throw new RuntimeException("Couldn't parse file");
         }
@@ -167,5 +165,15 @@ public class User {
         }
 
         return ingredient;
+    }
+
+    public void sortRecipe()
+    {
+        Collections.sort(recipes);
+    }
+
+    public void sortIngredient()
+    {
+        Collections.sort(ingredients);
     }
 }

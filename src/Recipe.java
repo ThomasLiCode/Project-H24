@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Recipe {
+public class Recipe implements Comparable <Recipe>{
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private ArrayList<Double> portions = new ArrayList<>();
     private HashMap<Vitamins, Double> nutrients = new HashMap<>();
@@ -116,6 +116,27 @@ public class Recipe {
                 calculationCalories();
                 break;
         }
+
+        public int compareTo(Recipe recipe)
+        {
+            if(recipe.getCalories() > getCalories())
+            {
+                return -1;
+            }
+            if(recipe.getCalories() < getCalories())
+            {
+                return 1;
+            }
+            if(recipe.getProtein() > getProtein())
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
     }
 
     // public void saveRecipe(){  } need to create a file in order to save

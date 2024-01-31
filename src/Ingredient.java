@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Ingredient {
+public class Ingredient implement Comparable{
 
     private String name;
     private String description;
@@ -86,4 +86,25 @@ public class Ingredient {
                 ", proteinPer100=" + proteinPer100 +
                 '}';
     }
+
+    public int compareTo(Ingredient ingredient)
+    {
+        if(ingredient.getCaloriesPer100() > getCaloriesPer100())
+        {
+            return -1;
+        }
+        if(ingredient.getCaloriesPer100() < getCaloriesPer100())
+        {
+            return 1;
+        }
+        if(ingredient.getProteinPer100() > getProteinPer100())
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
 }
