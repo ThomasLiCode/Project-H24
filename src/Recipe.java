@@ -117,26 +117,27 @@ public class Recipe implements Comparable <Recipe>{
                 break;
         }
 
-        public int compareTo(Recipe recipe)
-        {
-            if(recipe.getCalories() > getCalories())
-            {
-                return -1;
-            }
-            if(recipe.getCalories() < getCalories())
-            {
-                return 1;
-            }
-            if(recipe.getProtein() > getProtein())
-            {
-                return -1;
-            }
-            else
-            {
-                return 1;
-            }
-        }
 
+
+    }
+    public int compareTo(Recipe recipe)
+    {
+        if(recipe.getCalories() > getCalories())
+        {
+            return -1;
+        }
+        if(recipe.getCalories() < getCalories())
+        {
+            return 1;
+        }
+        if(recipe.getProtein() > getProtein())
+        {
+            return -1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 
     // public void saveRecipe(){  } need to create a file in order to save

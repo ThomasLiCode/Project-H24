@@ -24,9 +24,15 @@ public class profileSelect extends JPanel {
         btnLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               selectProfile = (String)cbProfiles.getSelectedItem();
+
+                selectProfile = (String)cbProfiles.getSelectedItem();
+                frame.getLoginPanel().setSelectedProfile(selectProfile);
             }
         });
+    }
+
+    public String returnSelected(){
+        return selectProfile;
     }
 
 

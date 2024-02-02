@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.io.FileReader;
 import java.util.List;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -9,6 +7,7 @@ public class MainFrame extends JFrame {
     private JPanel profileSelectionPanel;
     //    private registerForm registrationPanel;
     private JPanel registrationPanel;
+    private JPanel loginPanel;
 
     private static ArrayList<User> users = new ArrayList<>();
 
@@ -17,10 +16,11 @@ public class MainFrame extends JFrame {
         setSize(800, 500);
         setTitle("Profile Manager");
 
-        loadUser();
+        loadUsers();
 
         profileSelectionPanel = new profileSelect(this).getPanel();
         registrationPanel = new registerForm(this).getPanel();
+        loginPanel = new LoginForm(this).getPanel();
 
 
 
@@ -34,7 +34,17 @@ public class MainFrame extends JFrame {
         repaint();
     }
 
-    public void loadUser(){
+    public JPanel getLoginPanel(){
+        return loginPanel;
+    }
+
+    public void showLoginPanel() {
+        setContentPane(loginPanel);
+        revalidate();
+        repaint();
+    }
+
+    public void loadUsers(){
         try {
             for (int i = 1; i <= 3; i++) {
                 User newUser = User.loadFromFile("src/saveFile" + i);
@@ -49,10 +59,18 @@ public class MainFrame extends JFrame {
         return users.stream().map(User::getUsername).collect(Collectors.toList());
     }
 
+    public static User findUser(String name){
+        for(int i = 0; i < users.size(); i++){
+            User curr = users.get(i);
+            if(curr.getUsername().equals(name)){
+                return curr;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         new MainFrame();
-
-
     }
 }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Ingredient implement Comparable{
+public class Ingredient implements Comparable<Ingredient>{
 
     private String name;
     private String description;
